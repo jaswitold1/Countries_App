@@ -1,21 +1,27 @@
 import React from 'react';
 //router 
-import { BrowserRouter, Route } from "react-router-dom";
-//components
-import Link from './components/Link'
-import Continents from './components/Continents'
-import Country from './components/Country'
+import { BrowserRouter, Route, RouteComponentProps } from "react-router-dom";
+//routes
+import routes from './config/routes'
 
 
 
-function App() {
+const App: React.FC<{}> = () => {
   
   return (
     <BrowserRouter>
   <div className="App">
-   <Route exact path='/' component={Link}/>
-   <Route exact path='/continents' component={Continents}/>
-    <Route exact path='/continents/:code' component={Country}/>
+  {
+    routes.map((el,i)=>{
+      return (
+        <Route key={i} 
+          path={el.path} 
+          exact={el.exact} 
+          component={el.component}
+        />)
+
+    })
+  }
     </div>
     </BrowserRouter>
   );

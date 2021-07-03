@@ -1,12 +1,22 @@
 import React from 'react'
 //router 
 import {Link} from 'react-router-dom'
+import { useGetContinents } from '../hooks/useGetContinents'
 
 function Continents() {
+    const continents = useGetContinents()
+    
+    
     return (
-        <Link to={`/continents/${Math.random()}}`}>
-            Continents
-        </Link>
+        continents?.map((el,i)=>{
+            return <Link key={i} to={`/continents/${el.code}`}>
+                        {
+                            el.name
+                        }
+                    </Link>
+                    
+        })
+      
     )
 }
 

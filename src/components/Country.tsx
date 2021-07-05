@@ -14,13 +14,21 @@ function Country() {
  
   
     return (
-        <div>
+        <div  >
             {
              countries ?   countries?.countries.map((el:any,i:number)=>{
-                    return <div key={i}>
-                        {el.name}
-                        {el.emoji}
-                        {el.languages[0]?.name}
+                    return <div style={{
+                                        display:'grid',
+                                        gridTemplateColumns: "repeat(3, 1fr)",
+                                        gap: '50px',
+                                        gridAutoRows:"minmax(50px,auto)",
+                                      
+                        }} key={i}>
+
+                            <div >{el.name}</div>
+                            <div>{el.emoji}</div>
+                            <div>{el.languages[0]?.name}</div>
+                            
                     </div>
                 }) : "loading"
             }

@@ -2,11 +2,12 @@ import React from 'react'
 
 import { useGetCountries } from '../hooks/useGetCountries'
 
+
 function Country() {
     
   
        
-     const countries:any = useGetCountries()
+     const countries = useGetCountries()
      console.log(countries);
 
      
@@ -16,7 +17,7 @@ function Country() {
     return (
         <div  >
             {
-             countries ?   countries?.countries.map((el:any,i:number)=>{
+             countries ?   countries?.countries.map((el,i)=>{
                     return <div style={{
                                         display:'grid',
                                         gridTemplateColumns: "repeat(3, 1fr)",

@@ -22,7 +22,7 @@ query GetCountries($code:ID!)  {
 }`
 
 export const useGetCountries = ():ICountries | undefined => {
-    const params:any = useParams()
+    const params:{code:string} = useParams()
     console.log(params.code);
     
     const {data} = useQuery(GET_COUNTRIES, {

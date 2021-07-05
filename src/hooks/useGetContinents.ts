@@ -9,7 +9,7 @@ query  {
   }
 }`
 
-export const useGetContinents = ():IContinent[] | undefined => {
+export const useGetContinents = () => {
     const {data} = useQuery(GET_CONTINENTS)
-    return data.continents
+    return data?.continents
 }
